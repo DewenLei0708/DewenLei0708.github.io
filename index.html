@@ -267,17 +267,32 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 <h3 id="Example-2："><a href="#Example-2：" class="headerlink" title="Example 2："></a>Example 2：</h3><pre><code>Input: nums = [3,2,4], target = 6
 Output: [1,2]
 </code></pre>
-<h2 id="二、思路"><a href="#二、思路" class="headerlink" title="二、思路"></a>二、思路</h2><h3 id="显然可以利用两个循环进行嵌套，得出答案。但是此算法时间复杂度为-O-n-2-，-不是最理想的选择。此时，我们应想到利用哈希表，提高算法效率。"><a href="#显然可以利用两个循环进行嵌套，得出答案。但是此算法时间复杂度为-O-n-2-，-不是最理想的选择。此时，我们应想到利用哈希表，提高算法效率。" class="headerlink" title="显然可以利用两个循环进行嵌套，得出答案。但是此算法时间复杂度为 $O(n^{2})$， 不是最理想的选择。此时，我们应想到利用哈希表，提高算法效率。"></a>显然可以利用两个循环进行嵌套，得出答案。但是此算法时间复杂度为 $O(n^{2})$， 不是最理想的选择。此时，我们应想到利用哈希表，提高算法效率。</h3><p>###哈希表（HashMap) 在此题中可以做到边搜索边存储，因此只需遍历一遍数列即可找到答案。</p>
-<p>###具体来说，我们利用STL中的map来实现哈希表。<br>###例如<br>    Input: nums &#x3D; [2,7,11,15], target &#x3D; 9<br>    Output: [0,1]<br>###map[2]&#x3D;1, map[7]&#x3D;2, map[11]&#x3D;3 …<br>###如此，我们就将nums中的每一个数都对应到了一个从1开始的顺序值。<br>###随后我们开始遍历，显然，我们每次都将nums[i]加入哈希表map。遍历时每次都要用target-nums[i], 并且在哈希表中搜索这个值，如果有，那么break，return二者序列号即可，可以使用 stl 的 vector 装这两个值。</p>
-<p>##三、code<br>    &#96;&#96;&#96;<br>    class Solution {<br>    public:<br>    vector<int> twoSum(vector<int>&amp; nums, int target) {<br>    map&lt;int,int&gt; m;<br>    vector<int> v;<br>    for(int i&#x3D;0;i&lt;nums.size();i++){<br>        int dif &#x3D; target - nums[i];<br>        if(m.find(dif) !&#x3D; m.end()){<br>            v.push_back(m[dif]);<br>            v.push_back(i);<br>            break;<br>        }<br>        m[nums[i]]&#x3D;i;<br>        }</p>
-<pre><code>return v;
+<h2 id="二、思路"><a href="#二、思路" class="headerlink" title="二、思路"></a>二、思路</h2><p>###显然可以利用两个循环进行嵌套，得出答案。但是此算法时间复杂度为 $O(n^{2})$， 不是最理想的选择。此时，我们应想到利用哈希表，提高算法效率。</p>
+<p>###哈希表（HashMap) 在此题中可以做到边搜索边存储，因此只需遍历一遍数列即可找到答案。</p>
+<h3 id="具体来说，我们利用STL中的map来实现哈希表。"><a href="#具体来说，我们利用STL中的map来实现哈希表。" class="headerlink" title="具体来说，我们利用STL中的map来实现哈希表。"></a>具体来说，我们利用STL中的map来实现哈希表。</h3><h3 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h3><pre><code>Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+</code></pre>
+<h3 id="map-2-x3D-1-map-7-x3D-2-map-11-x3D-3-…"><a href="#map-2-x3D-1-map-7-x3D-2-map-11-x3D-3-…" class="headerlink" title="map[2]&#x3D;1, map[7]&#x3D;2, map[11]&#x3D;3 …"></a>map[2]&#x3D;1, map[7]&#x3D;2, map[11]&#x3D;3 …</h3><p>###如此，我们就将nums中的每一个数都对应到了一个从1开始的顺序值。</p>
+<h3 id="随后我们开始遍历，显然，我们每次都将nums-i-加入哈希表map。遍历时每次都要用target-nums-i-并且在哈希表中搜索这个值，如果有，那么break，return二者序列号即可，可以使用-stl-的-vector-装这两个值。"><a href="#随后我们开始遍历，显然，我们每次都将nums-i-加入哈希表map。遍历时每次都要用target-nums-i-并且在哈希表中搜索这个值，如果有，那么break，return二者序列号即可，可以使用-stl-的-vector-装这两个值。" class="headerlink" title="随后我们开始遍历，显然，我们每次都将nums[i]加入哈希表map。遍历时每次都要用target-nums[i], 并且在哈希表中搜索这个值，如果有，那么break，return二者序列号即可，可以使用 stl 的 vector 装这两个值。"></a>随后我们开始遍历，显然，我们每次都将nums[i]加入哈希表map。遍历时每次都要用target-nums[i], 并且在哈希表中搜索这个值，如果有，那么break，return二者序列号即可，可以使用 stl 的 vector 装这两个值。</h3><h2 id="三、code"><a href="#三、code" class="headerlink" title="三、code"></a>三、code</h2><pre><code>class Solution &#123;
+public:
+vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;
+map&lt;int,int&gt; m;
+vector&lt;int&gt; v;
+for(int i=0;i&lt;nums.size();i++)&#123;
+    int dif = target - nums[i];
+    if(m.find(dif) != m.end())&#123;
+        v.push_back(m[dif]);
+        v.push_back(i);
+        break;
+    &#125;
+    m[nums[i]]=i;
+    &#125;
+
+return v;
 
 &#125;
 &#125;;
-```
 </code></pre>
-<p>date: 2022-08-31 00:32:36</p>
-<p>tags: HashMap</p>
 <hr>
 
             
