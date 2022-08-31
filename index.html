@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+<html lang="en ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Think Different || Dewen&#39;s Blog</title>
+    <meta name="author" content="Dewen Lei">
+    <meta name="description" content=" ">
+    <meta name="keywords" content=" ">
+    <link rel="icon" href="//image/jobs.jpg">
+    <link rel="stylesheet" href="/css/antd.min.css">
+    
+    <link rel="stylesheet" href="/css/night-theme.css">
+    
+    <script src="/js/vue.js"></script>
+    <script src="/js/antd.min.js"></script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+<body>
+
+    <div id="loading"
+        style="height: 100vh; width: 100%; position: fixed;display: flex;z-index: 200; justify-content: space-between;">
+        <div id="loadleft" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div id="loadright" style="width: 50%;background-color: #ffffff;transition: width 0.6s ease-out;"></div>
+        <div
+            style="position: fixed; height: 100vh; width: 100%;display: flex;justify-content: center;align-items: center;">
+            <div id="loadcontent"
+                style="width:400px;height:400px;padding:50px;border-radius:50%;display:flex;justify-content:center;align-items:center;border:solid 10px#a3ddfb; text-align:center;opacity:1;transition:opacity 0.3s ease-out;">
+                <div>
+                    <h2>LOADING...</h2>
+                    <p>加载过慢请开启缓存(浏览器默认开启)</p>
+                    <div>
+                        <img src="/dancingkitty.gif" alt="loading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="layout">
+        <transition name="into">
+            <div v-show="show_page" style="display: none;">
+                <div id="menu_show">
+                     
+<nav id="menu">
+    <div class="desktop-menu">
+        <a href="/">
+            <span class="title">Think Different</span>
+        </a>
+        
+        <a href="/">
+            <span>
+                <a-icon type="home" theme="filled" />
+            </span>
+            <span>home</span>
+        </a>
+        
+        <a href="/about">
+            <span>
+                <a-icon type="idcard" theme="filled" />
+            </span>
+            <span>about</span>
+        </a>
+        
+        <a href="/archives">
+            <span>
+                <a-icon type="folder" theme="filled" />
+            </span>
+            <span>archives</span>
+        </a>
+        
+        <a href="/like/categories">
+            <span>
+                <a-icon type="book" theme="filled" />
+            </span>
+            <span>categories</span>
+        </a>
+        
+        <a href="/like/tags">
+            <span>
+                <a-icon type="tags" theme="filled" />
+            </span>
+            <span>tags</span>
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://en.korilin.com">
+            <span>
+                <a-icon type="compass" theme="filled" />
+            </span>
+            <span>英文博客</span>
+        </a>
+        
+    </div>
+
+    <div :class="'phone-menu ' + menu_show" id="phone-menu">
+        <div :class="'title'" @click="menu_show=!menu_show">
+            <span style="margin-right: 10px;">
+                <a-icon type="appstore" theme="filled" />
+            </span>
+            <span>Think Different</span>
+        </div>
+        <div class="items" v-show="menu_show">
+            
+            <a href="/">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="home" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">home</div>
+                </div>
+            </a>
+            
+            <a href="/about">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="idcard" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">about</div>
+                </div>
+            </a>
+            
+            <a href="/archives">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="folder" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">archives</div>
+                </div>
+            </a>
+            
+            <a href="/like/categories">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="book" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">categories</div>
+                </div>
+            </a>
+            
+            <a href="/like/tags">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="tags" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">tags</div>
+                </div>
+            </a>
+            
+            <a target="_blank" rel="noopener" href="https://en.korilin.com">
+                <div class="item">
+                    <div style="min-width:20px; max-width:50px; width: 10%">
+                        <a-icon type="compass" theme="filled" />
+                    </div>
+                    <div style="min-width:100px;max-width: 150%;width: 20%;">英文博客</div>
+                </div>
+            </a>
+            
+        </div>
+        <div class="curtain" v-show="menu_show"></div>
+    </div>
+
+</nav>
+                </div>
+
+                <div id="main">
+                    <div id="home-head" style=background-image:url('home.jpg')>
+    <script>
+        var menu = document.getElementById("menu")
+        menu.className += " menu-color"
+    </script>
+     
+    <div id="home-info" class="home-info" @click="home_click">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Think Different</h1>
+                <h3>Dewen's Blog</h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+     
+</div>
+
+
+
+<div id="home-posts-wrap" class=>
+    <div id="home-posts">
+
+        <div id="posts">
+            
+
+<div class="post">
+
+    <a href="/2022/08/31/a-test/">
+        <h2>
+            a test
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/8/31
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2022/08/31/a-test/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2022/08/31/First-post/">
+        <h2>
+            Two Sum
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/8/31
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <h1 id="Leetcode-no-1-Two-Sum"><a href="#Leetcode-no-1-Two-Sum" class="headerlink" title="Leetcode no.1 : Two Sum"></a>Leetcode no.1 : Two Sum</h1><h2 id="一、-题目"><a href="#一、-题目" class="headerlink" title="一、 题目"></a>一、 题目</h2><h3 id="Given-an-array-of-integers-nums-and-an-integer-target-return-indices-of-the-two-numbers-such-that-they-add-up-to-target"><a href="#Given-an-array-of-integers-nums-and-an-integer-target-return-indices-of-the-two-numbers-such-that-they-add-up-to-target" class="headerlink" title="Given an array of integers  nums  and an integer target, return indices of the two numbers such that they add up to target."></a>Given an array of integers  <strong><em>nums</em></strong>  and an integer <strong><em>target</em></strong>, return indices of the two numbers such that they add up to target.</h3><h3 id="You-may-assume-that-each-input-would-have-exactly-one-solution-and-you-may-not-use-the-same-element-twice"><a href="#You-may-assume-that-each-input-would-have-exactly-one-solution-and-you-may-not-use-the-same-element-twice" class="headerlink" title="You may assume that each input would have exactly one solution, and you may not use the same element twice."></a>You may assume that each input would have exactly one solution, and you may not use the same element twice.</h3><h3 id="You-can-return-the-answer-in-any-order"><a href="#You-can-return-the-answer-in-any-order" class="headerlink" title="You can return the answer in any order."></a>You can return the answer in any order.</h3><h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1:"></a>Example 1:</h3><pre><code>Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+</code></pre><h3 id="Example-2："><a href="#Example-2：" class="headerlink" title="Example 2："></a>Example 2：</h3><pre><code>Input: nums = [3,2,4], target = 6
+Output: [1,2]
+</code></pre><h2 id="二、思路"><a href="#二、思路" class="headerlink" title="二、思路"></a>二、思路</h2><h3 id="显然可以利用两个循环进行嵌套，得出答案。但是此算法时间复杂度为-O-n-2-，-不是最理想的选择。此时，我们应想到利用哈希表，提高算法效率。"><a href="#显然可以利用两个循环进行嵌套，得出答案。但是此算法时间复杂度为-O-n-2-，-不是最理想的选择。此时，我们应想到利用哈希表，提高算法效率。" class="headerlink" title="显然可以利用两个循环进行嵌套，得出答案。但是此算法时间复杂度为 $O(n^{2})$， 不是最理想的选择。此时，我们应想到利用哈希表，提高算法效率。"></a>显然可以利用两个循环进行嵌套，得出答案。但是此算法时间复杂度为 $O(n^{2})$， 不是最理想的选择。此时，我们应想到利用哈希表，提高算法效率。</h3><h3 id="哈希表（HashMap-在此题中可以做到边搜索边存储，因此只需遍历一遍数列即可找到答案。"><a href="#哈希表（HashMap-在此题中可以做到边搜索边存储，因此只需遍历一遍数列即可找到答案。" class="headerlink" title="哈希表（HashMap) 在此题中可以做到边搜索边存储，因此只需遍历一遍数列即可找到答案。"></a>哈希表（HashMap) 在此题中可以做到边搜索边存储，因此只需遍历一遍数列即可找到答案。</h3><h3 id="具体来说，我们利用STL中的map来实现哈希表。"><a href="#具体来说，我们利用STL中的map来实现哈希表。" class="headerlink" title="具体来说，我们利用STL中的map来实现哈希表。"></a>具体来说，我们利用STL中的map来实现哈希表。</h3><h3 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h3><pre><code>Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+</code></pre><h3 id="map-2-1-map-7-2-map-11-3-…"><a href="#map-2-1-map-7-2-map-11-3-…" class="headerlink" title="map[2]=1, map[7]=2, map[11]=3 …"></a>map[2]=1, map[7]=2, map[11]=3 …</h3><h3 id="如此，我们就将nums中的每一个数都对应到了一个从1开始的顺序值。"><a href="#如此，我们就将nums中的每一个数都对应到了一个从1开始的顺序值。" class="headerlink" title="如此，我们就将nums中的每一个数都对应到了一个从1开始的顺序值。"></a>如此，我们就将nums中的每一个数都对应到了一个从1开始的顺序值。</h3><h3 id="随后我们开始遍历，显然，我们每次都将nums-i-加入哈希表map。遍历时每次都要用target-nums-i-并且在哈希表中搜索这个值，如果有，那么break，return二者序列号即可，可以使用-stl-的-vector-装这两个值。"><a href="#随后我们开始遍历，显然，我们每次都将nums-i-加入哈希表map。遍历时每次都要用target-nums-i-并且在哈希表中搜索这个值，如果有，那么break，return二者序列号即可，可以使用-stl-的-vector-装这两个值。" class="headerlink" title="随后我们开始遍历，显然，我们每次都将nums[i]加入哈希表map。遍历时每次都要用target-nums[i], 并且在哈希表中搜索这个值，如果有，那么break，return二者序列号即可，可以使用 stl 的 vector 装这两个值。"></a>随后我们开始遍历，显然，我们每次都将nums[i]加入哈希表map。遍历时每次都要用target-nums[i], 并且在哈希表中搜索这个值，如果有，那么break，return二者序列号即可，可以使用 stl 的 vector 装这两个值。</h3><h2 id="三、code"><a href="#三、code" class="headerlink" title="三、code"></a>三、code</h2><pre><code>class Solution &#123;
+public:
+vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;
+map&lt;int,int&gt; m;
+vector&lt;int&gt; v;
+for(int i=0;i&lt;nums.size();i++)&#123;
+    int dif = target - nums[i];
+    if(m.find(dif) != m.end())&#123; 当m.find() != m.end()时, 证明find的数在哈希表中存在
+        v.push_back(m[dif]);
+        v.push_back(i);
+        break;
+    &#125;
+    m[nums[i]]=i;
+    &#125;
+
+return v;
+
+&#125;
+&#125;;
+</code></pre><h2 id="O-n-2"><a href="#O-n-2" class="headerlink" title="O(n^{2})"></a>O(n^{2})</h2>
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        <span class="icon">
+            <a-icon type="tags" theme="filled" />
+        </span>
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/Leetcode" style=color:#607d8b>
+                Leetcode
+            </a>
+        </span>
+        
+    </div>
+
+    <a href="/2022/08/31/First-post/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+<div class="post">
+
+    <a href="/2022/08/30/hello-world/">
+        <h2>
+            Hello World
+        </h2>
+    </a>
+
+    <div class="category-and-date">
+
+        
+
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/8/30
+        </span>
+
+    </div>
+
+    <div class="excerpt">
+        <div class="content" v-pre>
+            
+            
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="lang-bash">$ hexo new &quot;My New Post&quot;
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="lang-bash">$ hexo server
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="lang-bash">$ hexo generate
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="lang-bash">$ hexo deploy
+</code></pre>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+            
+        </div>
+    </div>
+
+    <div class="post-tags">
+        
+        
+    </div>
+
+    <a href="/2022/08/30/hello-world/ " class="go-post">
+        阅读全文
+    </a>
+</div>
+
+
+             
+<div class="page-current">
+
+    <div class="prev">
+        
+    </div>
+
+    <div class="page-index">
+
+        
+
+        <span class="current">
+            1
+        </span>
+
+        
+
+    </div>
+
+    <div class="next">
+        
+    </div>
+
+</div>
+
+        </div>
+    </div>
+    
+    <div id="home-card">
+        <a-affix :offset-top="card_top">
+    <a-card class="card-style" style="width: 300px">
+        <div class="avatar">
+            <img src="/image/jobs.jpg " alt="头像">
+        </div>
+        <div class="name">
+            Dewen Lei
+        </div>
+        <div class="descriptions">
+            
+            <div class="description">
+                Contact me. E-mail: leidewen20040708@126.com
+            </div>
+            
+        </div>
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com/DewenLei0708">
+
+                    
+                    <a-icon type="github"
+                        theme="filled" />
+                    
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://twitter.com/korilin_dev">
+
+                    
+                    <a-icon type="twitter"
+                        theme="" />
+                    
+                </a>
+            </span>
+            
+        </div>
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://en.korilin.com">
+                    英文技术博客
+                </a>
+            </div>
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://jp.korilin.com">
+                    日语记录博客
+                </a>
+            </div>
+            
+        </div>
+    </a-card>
+</a-affix>
+    </div>
+    
+</div>
+                     
+<footer id="footer">
+    <div class="footer-wrap">
+        <div>
+            © 2018 - 2022 Think Different
+            <span class="footer-icon">
+                <a-icon type="flag" theme="filled" /></span>
+            @Dewen Lei
+        </div>
+        <div></div>
+        <div>Based on the <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo Engine</a> & <a
+                target="_blank" rel="noopener" href="https://github.com/korilin/hexo-theme-particle">Particle Theme</a></div>
+        
+    </div>
+
+</footer>
+
+<script src="/js/highlight.min.js"></script>
+<script src="/js/particle.js"></script>
+                </div>
+            </div>
+        </transition>
+    </div>
+
+    <script>
+    new Vue({
+        el: "#layout",
+        data: {
+            show_page: false,
+            onload_menu: false,
+            menu_show: false,
+            card_top: 100
+        },
+        created: function () {
+            var that = this
+            window.onload = function () {
+                that.show_page = true
+                document.getElementById("loadcontent").style.opacity = 0
+                setTimeout(function () {
+                    document.getElementById("loadleft").style.width = 0
+                    document.getElementById("loadright").style.width = 0
+                }, 300)
+                setTimeout(function () {
+                    document.getElementById("loading").style = "display:none"
+                }, 600)
+            }
+        },
+        mounted: function () {
+            var that = this
+            window.addEventListener('scroll', function (e) {
+                that.menu_show = false
+            })
+        },
+        methods: {
+            home_click: function () {
+                window.scrollTo({
+                    top: window.innerHeight - 80,
+                    behavior: "smooth",
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>
