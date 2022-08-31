@@ -277,7 +277,7 @@ map&lt;int,int&gt; m;
 vector&lt;int&gt; v;
 for(int i=0;i&lt;nums.size();i++)&#123;
     int dif = target - nums[i];
-    if(m.find(dif) != m.end())&#123;  当m.find() != m.end()时, 证明find的数在哈希表中存在
+    if(m.find(dif) != m.end())&#123;  //当m.find() != m.end()时, 证明find的数在哈希表中存在
         v.push_back(m[dif]);
         v.push_back(i);
         break;
